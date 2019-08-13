@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Przelicznik Walut</title>
+    <meta charset="utf-8">
+    <style>
+    body {
+        width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .title {
+        margin-top: 35px;
+        text-align: center;
+    }
+
+    #info-message {
+        margin-bottom: 5px;
+    }
+
+    #selector {
+        margin-bottom: 10px;
+    }
+
+    .input-box {
+        margin-top: 10px;
+    }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="title">
+        <h1>Przelicznik Walut</h1>
+    </div>
+    <div id="info-message">
+        {% if 'wynik' in message %}
+            <a><b>Sukcess: </b>Przewalutowano pomyślnie z <b>{{ waluta1 }}</b> na <b>{{ waluta2 }}</b>!</a>
+        {% elif 'blad500' in message%}
+            <a style="color: red;"><b>Błąd:</b> proszę wypełnić puste pola!</a>
+        {% endif %}
+    </div>
+    <form method="POST">
+        <div id="selector">
+            <select name="currency1">
+            {% for name in names %}
+                <option>{{ name }}</option>
+            {% endfor %}
+            </select>
+            <a>na</a>
+            <select name="currency2">
+                {% for name in names %}
+                    <option>{{ name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input type="text" name="input">
+        <a>--></a>
+        <b>{{ result }}</b>
+        <button type="submit" name="submit-button">Przelicz</button>
+    </form>
+</div>
+</body>
+</html>
