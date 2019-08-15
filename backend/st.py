@@ -76,4 +76,4 @@ def read_currency_names():
     return curr
 
 def run():
-    app.run(debug=False, host="przelicznik-walut.herokuapp.com", port=int(os.environ["PORT"]))
+    app.run(debug=False, host="0.0.0.0", port=int(os.environ["PORT"]))

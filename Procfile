@@ -1,1 +1,1 @@
-web: python3 start.py --bind 0.0.0.0:${PORT} wsgi
+web: python3 start.py
