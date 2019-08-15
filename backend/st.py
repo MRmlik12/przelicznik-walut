@@ -57,7 +57,7 @@ def error_405():
 
 @app.errorhandler(500)
 def error(e):
-    return redirect("/blad")
+    return "<h1>Proszę uzupełnić wszystkie pola</h1>"
 
 @app.errorhandler(404)
 def error_404(e):
