@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request
 import sqlite3
 from backend.currency_api import calculate
+import os
 
 app = Flask(__name__, template_folder='website', static_folder='website')
 values = []
@@ -75,4 +76,4 @@ def read_currency_names():
     return curr
 
 def run():
-    app.run(debug=False, host="https://przelicznik-walut.herokuapp.com/")
+    app.run(debug=False, host="https://przelicznik-walut.herokuapp.com/", port=os.environ["PORT"])
